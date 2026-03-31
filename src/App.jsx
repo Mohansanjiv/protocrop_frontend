@@ -7,21 +7,29 @@ import "./App.css";
 function App() {
   const [urls, setUrls] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleUrls = (data) => {
     setUrls(data);
     setCurrentIndex(0);
+    setHasError(false);
+    setIsLoading(true);
   };
 
   const nextWebsite = () => {
     if (currentIndex < urls.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex((prev) => prev + 1);
+      setHasError(false);
+      setIsLoading(true);
     }
   };
 
   const prevWebsite = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex((prev) => prev - 1);
+      setHasError(false);
+      setIsLoading(true);
     }
   };
 
@@ -56,7 +64,13 @@ function App() {
               </button>
             </div>
 
-            <WebsiteViewer url={urls[currentIndex]} />
+            <WebsiteViewer
+              url={urls[currentIndex]}
+              hasError={hasError}
+              setHasError={setHasError}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
           </>
         )}
       </div>
