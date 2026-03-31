@@ -20,7 +20,7 @@ function FileUpload({ handleUrls }) {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/files/upload",
+        "https://filereader-backend-2.onrender.com/api/files/upload",
         formData,
         {
           headers: {
