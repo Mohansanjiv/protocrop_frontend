@@ -1,0 +1,14 @@
+body {
+  background-color: #f5f7fb;
+}
+
+.website-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+  width: 100%;
+}
