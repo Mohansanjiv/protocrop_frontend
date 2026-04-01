@@ -8,19 +8,6 @@ function WebsiteViewer({ url }) {
     ? url.replace("https://www.https//", "https://")
     : `https://${url}`;
 
-  useEffect(() => {
-    setHasError(false);
-    setIsLoading(true);
-
-    const timer = setTimeout(() => {
-      // if iframe still loading after 8 seconds, assume blocked
-      setHasError(true);
-      setIsLoading(false);
-    }, 8000);
-
-    return () => clearTimeout(timer);
-  }, [correctedUrl]);
-
   return (
     <div className="website-container">
       <h5 className="mb-3">Current Website:</h5>
